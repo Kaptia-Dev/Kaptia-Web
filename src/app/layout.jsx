@@ -1,5 +1,6 @@
 import "./globals.css";
 import Navbar from "@layout/Navbar";
+import Footer from "@layout/Footer";
 
 export const metadata = {
   title: "Kaptia",
@@ -13,6 +14,7 @@ export default function RootLayout({ children }) {
       <body className="antialiased font-sans">
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );
