@@ -113,10 +113,10 @@ export default function Navbar() {
             className={`p-5 backdrop-blur-[6px] transition-all duration-500 ${scrolled ? "bg-kaptia-yellow/70 rounded-2xl shadow-2xl" : "bg-kaptia-yellow/80"}`}
           >
             <ul className="flex flex-col gap-4 text-center">
-              {NAVLINKS.map((linl, idx) => (
+              {NAVLINKS.map((link, idx) => (
                 <NavLink
-                  text={linl.name}
-                  href={linl.href}
+                  text={link.name}
+                  href={link.href}
                   idx={idx}
                   key={idx}
                   animation={"animate-fade-in-down"}
