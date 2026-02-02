@@ -2,11 +2,12 @@
 
 import SplitText from "@ui/SplitText";
 import CustomButton from "@ui/CustomButton";
+import DownButton from "@ui/DownButton";
 
 export default function Hero() {
   return (
     <>
-      <section className="h-screen flex justify-center items-center flex-col md:flex-row">
+      <section className="h-screen flex justify-center items-center flex-col md:flex-row relative">
         <div className="w-full md:w-2/3 flex flex-col gap-10">
           <SplitText
             text="Encuentra a tus clientes antes que tu competencia"
@@ -44,6 +45,7 @@ export default function Hero() {
             alt=""
           />
         </div>
+        <DownButton />
       </section>
     </>
   );
