@@ -21,7 +21,7 @@ export default function Navbar() {
     { name: "Inicio", href: "/" },
     { name: "Producto", href: "/producto" },
     { name: "Early Partners", href: "/partners" },
-    { name: "Nosotros", href: "/team" },
+    { name: "Nosotros", href: "/nosotros" },
   ];
 
   return (
