@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import CustomButton from "@ui/CustomButton";
 import NavLink from "@ui/NavLink";
 
@@ -8,13 +8,34 @@ import { Bars3Icon, BarsArrowUpIcon } from "@heroicons/react/24/outline";
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isLightBg, setIsLightBg] = useState(false);
+  const intersectingSet = useRef(new Set());
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 0);
-    };
-    window.addEventListener("scroll", handleScroll);
+    const handleScroll = () => setScrolled(window.scrollY > 0);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const lightSections = document.querySelectorAll('[data-navtheme="light"]');
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            intersectingSet.current.add(entry.target);
+          } else {
+            intersectingSet.current.delete(entry.target);
+          }
+        });
+        setIsLightBg(intersectingSet.current.size > 0);
+      },
+      { rootMargin: "0px 0px -85% 0px" },
+    );
+
+    lightSections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
   }, []);
 
   const NAVLINKS = [
@@ -37,7 +58,7 @@ export default function Navbar() {
         }`}
       >
         <nav
-          className={`w-full flex justify-between items-center px-5 transition-all duration-300 backdrop-blur-[6px] bg-kaptia-secondary-blue/50 ${scrolled ? "rounded-full py-5 shadow-xl" : "py-8 bg-transparent"}`}
+          className={`w-full flex justify-between items-center px-5 transition-all duration-300 backdrop-blur-[6px] ${scrolled ? `rounded-full py-5 shadow-xl ${isLightBg ? "bg-kaptia-primary-blue/80" : "bg-kaptia-secondary-blue/50"}` : "py-8 bg-transparent"}`}
         >
           <button
             onClick={() => window.scrollTo({ top: 0 })}
@@ -54,7 +75,13 @@ export default function Navbar() {
             className={`flex flex-1 justify-center items-center transition-all duration-300 ${scrolled ? "lg:gap-8 xl:gap-16" : "lg:gap-14 xl:gap-24"}`}
           >
             {NAVLINKS.map((link, idx) => (
-              <NavLink text={link.name} href={link.href} idx={idx} key={idx} animation="animate-slide-up-fade" />
+              <NavLink
+                text={link.name}
+                href={link.href}
+                idx={idx}
+                key={idx}
+                animation="animate-slide-up-fade"
+              />
             ))}
           </ul>
           <CustomButton
@@ -70,7 +97,7 @@ export default function Navbar() {
         className={`w-full lg:hidden duration-300 transition-all flex flex-col ${scrolled ? "px-5 gap-5" : "gap-0"}`}
       >
         <nav
-          className={`w-full flex justify-between items-center px-5 transition-all duration-300 backdrop-blur-[6px]  ${scrolled ? "rounded-full py-5 shadow-xl bg-kaptia-secondary-blue/50" : "py-8 bg-transparent"}`}
+          className={`w-full flex justify-between items-center px-5 transition-all duration-300 backdrop-blur-[6px] ${scrolled ? `rounded-full py-5 shadow-xl ${isLightBg ? "bg-kaptia-primary-blue/80" : "bg-kaptia-secondary-blue/50"}` : "py-8 bg-transparent"}`}
         >
           <button
             onClick={() => window.scrollTo({ top: 0 })}
