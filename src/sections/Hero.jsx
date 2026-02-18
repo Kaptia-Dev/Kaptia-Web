@@ -112,7 +112,7 @@ export default function Hero() {
         </div>
       </section>
 
-      <section className="py-14 bg-white flex flex-col justify-center items-center gap-14 px-5 lg:px-8">
+      <section className="py-14 bg-white flex flex-col justify-center items-center gap-14 px-5 lg:px-8 border-t-8 border-kaptia-yellow">
         <div
           ref={brandingRef}
           className="flex flex-col gap-2 items-center justify-center"
@@ -146,7 +146,7 @@ export default function Hero() {
         />
       </section>
 
-      <section className="py-18 flex flex-col justify-center items-center bg-kaptia-secondary-blue px-5 lg:px-8 gap-16 md:gap-8">
+      <section className="py-18 flex flex-col justify-center items-center bg-kaptia-secondary-blue px-5 lg:px-8 gap-16 md:gap-8 border-t-8 border-b-8 border-kaptia-yellow">
         <div
           ref={featuresRef1}
           className="flex flex-col md:flex-row items-center gap-10 md:w-4/5"
