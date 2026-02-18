@@ -14,6 +14,7 @@ export default function Hero() {
   const [featuresRef1, featuresVisible1] = useScrollAnimation();
   const [featuresRef2, featuresVisible2] = useScrollAnimation();
   const [ctaRef, ctaVisible] = useScrollAnimation();
+  const [closingRef, closingVisible] = useScrollAnimation();
 
   return (
     <>
@@ -112,7 +113,7 @@ export default function Hero() {
         </div>
       </section>
 
-      <section className="py-14 bg-white flex flex-col justify-center items-center gap-14 px-5 lg:px-8 border-t-8 border-kaptia-yellow">
+      <section className="py-18 bg-white flex flex-col justify-center items-center gap-14 px-5 lg:px-8 border-t-8 border-kaptia-yellow">
         <div
           ref={brandingRef}
           className="flex flex-col gap-2 items-center justify-center"
@@ -215,6 +216,41 @@ export default function Hero() {
           src="./images/figura_2.webp"
           alt="Imagen representativa con un texto que dice Join Us"
         />
+      </section>
+
+      <section className="bg-white flex justify-center items-center py-18">
+        <div ref={closingRef} className="flex flex-col text-center">
+          <span
+            className={`text-2xl md:text-4xl lg:text-5xl text-kaptia-yellow font-bold italic ${closingVisible ? "animate-slide-in-left animate-delay-100" : "opacity-0"}`}
+          >
+            Juntos podemos llevar
+          </span>
+          <span
+            className={`text-2xl md:text-4xl lg:text-5xl text-kaptia-primary-blue font-bold ${closingVisible ? "animate-slide-in-right animate-delay-200" : "opacity-0"}`}
+          >
+            la digitalización y las ventas inteligentes
+          </span>
+          <span
+            className={`text-2xl md:text-4xl lg:text-5xl text-kaptia-primary-blue font-extralight ${closingVisible ? "animate-slide-in-left animate-delay-300" : "opacity-0"}`}
+          >
+            al alcance de todas las
+          </span>
+          <span
+            className={`text-kaptia-secondary-blue font-bold text-4xl md:text-5xl lg:text-6xl italic ${closingVisible ? "animate-slide-in-right animate-delay-400" : "opacity-0"}`}
+          >
+            PyMEs
+          </span>
+          <span
+            className={`text-2xl md:text-4xl lg:text-5xl text-kaptia-secondary-blue font-bold ${closingVisible ? "animate-slide-in-left animate-delay-500" : "opacity-0"}`}
+          >
+            creando un ecosistema más
+          </span>
+          <span
+            className={`text-2xl md:text-4xl lg:text-5xl text-kaptia-yellow font-bold ${closingVisible ? "animate-slide-in-right animate-delay-600" : "opacity-0"}`}
+          >
+            eficiente, moderno y conectado
+          </span>
+        </div>
       </section>
     </>
   );
