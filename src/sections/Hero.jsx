@@ -13,6 +13,7 @@ export default function Hero() {
   const [clockRef, clockVisible] = useScrollAnimation();
   const [featuresRef1, featuresVisible1] = useScrollAnimation();
   const [featuresRef2, featuresVisible2] = useScrollAnimation();
+  const [ctaRef, ctaVisible] = useScrollAnimation();
 
   return (
     <>
@@ -189,6 +190,31 @@ export default function Hero() {
             alt="Imagen representativa del chat con KaptiaBot"
           />
         </div>
+      </section>
+
+      <section
+        ref={ctaRef}
+        className="flex flex-col justify-center items-center gap-12 md:flex-row bg-white py-18"
+      >
+        <div
+          className={`flex flex-col justify-center items-center md:items-start gap-8 md:ps-24 ${ctaVisible ? "animate-slide-in-left" : "opacity-0"}`}
+        >
+          <p className="text-kaptia-yellow font-bold text-[2rem] md:text-4xl lg:text-6xl text-center md:text-start w-3/4 leading-8 md:leading-9 lg:leading-14">
+            ¿Eres una empresa mexicana de la industria manufacturera que aún no
+            cuenta con herramientas de prospección de clientes?
+          </p>
+          <CustomButton
+            text="ÚNETE A EARLY PARTNERS"
+            primaryColor="bg-kaptia-primary-blue"
+            secondaryColor="bg-kaptia-yellow"
+            textColor="text-white"
+          />
+        </div>
+        <img
+          className={`hidden md:block w-96 lg:w-lg ${ctaVisible ? "animate-slide-in-right" : "opacity-0"}`}
+          src="./images/figura_2.webp"
+          alt="Imagen representativa con un texto que dice Join Us"
+        />
       </section>
     </>
   );
