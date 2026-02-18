@@ -11,10 +11,12 @@ export default function Hero() {
   const [brandingRef, brandingVisible] = useScrollAnimation();
   const [descRef, descVisible] = useScrollAnimation();
   const [clockRef, clockVisible] = useScrollAnimation();
+  const [featuresRef1, featuresVisible1] = useScrollAnimation();
+  const [featuresRef2, featuresVisible2] = useScrollAnimation();
 
   return (
     <>
-      <section className="h-screen flex justify-center items-center flex-col md:flex-row relative">
+      <section className="h-screen flex justify-center items-center flex-col md:flex-row relative px-5 lg:px-8">
         <div className="w-full md:w-2/3 flex flex-col gap-10">
           <SplitText
             text="Encuentra a tus clientes antes que tu competencia"
@@ -55,7 +57,7 @@ export default function Hero() {
         <DownButton />
       </section>
 
-      <section className="h-screen flex flex-col items-center justify-center gap-24 md:gap-16">
+      <section className="h-screen flex flex-col items-center justify-center gap-24 md:gap-16 px-5 lg:px-8">
         <div
           ref={prospectingRef}
           className="flex flex-col justify-center items-center gap-24 md:gap-16"
@@ -109,7 +111,7 @@ export default function Hero() {
         </div>
       </section>
 
-      <section className="py-14 bg-white flex flex-col justify-center items-center gap-14">
+      <section className="py-14 bg-white flex flex-col justify-center items-center gap-14 px-5 lg:px-8">
         <div
           ref={brandingRef}
           className="flex flex-col gap-2 items-center justify-center"
@@ -120,7 +122,9 @@ export default function Hero() {
             Así nace
           </span>
           <img
-            className={brandingVisible ? "animate-slide-in-bottom" : "opacity-0"}
+            className={
+              brandingVisible ? "animate-slide-in-bottom" : "opacity-0"
+            }
             src="./logos/logoAzul.webp"
             alt="Logo Azul de Kaptia"
           />
@@ -139,6 +143,52 @@ export default function Hero() {
           src="./images/figura_10.webp"
           alt="Imagen representativa de un reloj"
         />
+      </section>
+
+      <section className="py-18 flex flex-col justify-center items-center bg-kaptia-secondary-blue px-5 lg:px-8 gap-16 md:gap-8">
+        <div
+          ref={featuresRef1}
+          className="flex flex-col md:flex-row items-center gap-10 md:w-4/5"
+        >
+          <div
+            className={`flex flex-col gap-2 text-center order-1 ${featuresVisible1 ? "animate-slide-in-left" : "opacity-0"}`}
+          >
+            <h2 className="text-white font-black text-3xl md:text-4xl lg:text-5xl italic">
+              Encuentra oportunidades reales de venta
+            </h2>
+            <p className="text-white font-gap-10light text-2xl">
+              Visualiza clientes potenciales del sector con datos oficiales y
+              planea mejor tus visitas
+            </p>
+          </div>
+          <img
+            className={`rounded-md shadow w-96 order-2 ${featuresVisible1 ? "animate-slide-in-right" : "opacity-0"}`}
+            src="./images/figura_8.webp"
+            alt="Imagen representativa del dashboard/sección del mapa de la república con clientes posibles"
+          />
+        </div>
+        <div
+          ref={featuresRef2}
+          className="flex flex-col md:flex-row items-center gap-10 md:w-4/5"
+        >
+          <div
+            className={`flex flex-col gap-2 text-center order-1 md:order-2 ${featuresVisible2 ? "animate-slide-in-right" : "opacity-0"}`}
+          >
+            <h2 className="text-white font-black text-3xl md:text-4xl lg:text-5xl italic">
+              Un agente de ventas para tu vendedor
+            </h2>
+            <p className="text-white font-gap-10light text-2xl">
+              <strong className="font-bold">KaptiaBot</strong> analiza tu base
+              de datos, prioriza prospectos y sugiere acciones para que tu
+              equipo venda mejor y con menos esfuerzo
+            </p>
+          </div>
+          <img
+            className={`rounded-md shadow w-56 order-2 md:order-1 ${featuresVisible2 ? "animate-slide-in-left" : "opacity-0"}`}
+            src="./images/figura_9.webp"
+            alt="Imagen representativa del chat con KaptiaBot"
+          />
+        </div>
       </section>
     </>
   );
