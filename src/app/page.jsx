@@ -8,7 +8,7 @@ export const metadata = {
 
 export default function Home() {
   return (
-    <main className="bg-kaptia-primary-blue h-[200vh] px-5 lg:px-8">
+    <main className="bg-kaptia-primary-blue">
       <Hero />
     </main>
   );
