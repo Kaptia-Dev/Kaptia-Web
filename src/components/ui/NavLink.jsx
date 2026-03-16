@@ -7,9 +7,11 @@ export default function NavLink({
   return (
     <li
       style={{ animationDelay: `${idx * 80}ms` }}
-      className={`text-white uppercase font-semibold rounded-full hover:text-kaptia-yellow hover:-translate-y-1 duration-300 transition-all ${animation}`}
+      className={`text-white uppercase font-semibold rounded-full hover:text-kaptia-yellow duration-300 transition-all hover:-translate-y-0.5 ${animation}`}
     >
-      <a href={href}>{text}</a>
+      <a className="block cursor-pointer" href={href}>
+        {text}
+      </a>
     </li>
   );
 }
