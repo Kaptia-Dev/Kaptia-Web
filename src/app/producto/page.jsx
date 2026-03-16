@@ -8,7 +8,7 @@ export const metadata = {
 
 export default function Producto() {
   return (
-    <main>
+    <main className="bg-kaptia-primary-blue">
       <Product />
     </main>
   );
