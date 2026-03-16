@@ -35,7 +35,7 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto px-8 py-10 flex flex-col gap-8">
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
           <img
-            src="./logos/logoBlanco.webp"
+            src="/logos/logoBlanco.webp"
             alt="Logo Kaptia"
             className="h-8 w-auto"
           />

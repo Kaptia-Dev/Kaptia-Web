@@ -67,7 +67,7 @@ export default function Navbar() {
           >
             <img
               className="w-42 h-auto transition-all duration-300"
-              src="./logos/logoCombinado.webp"
+              src="/logos/logoCombinado.webp"
               alt="Logo de Kaptia"
             />
           </button>
@@ -106,7 +106,7 @@ export default function Navbar() {
           >
             <img
               className="w-32 h-auto transition-all duration-300"
-              src="./logos/logoCombinado.webp"
+              src="/logos/logoCombinado.webp"
               alt="Logo de Kaptia"
             />
           </button>
